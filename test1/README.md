@@ -20,3 +20,7 @@
 ![Alt text](/优化1.png)
     语句2 优化
 ![Alt text](/优化2.png)
+###3、自定义语句
+![Alt text](/自定义.png)
+
+查询获取MK_MAN和MK_REP两个工作的最低工资
