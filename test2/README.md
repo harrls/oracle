@@ -19,29 +19,29 @@
 
 ①连接system   
 
-![avatar](/01连接成功1.png)
+![avatar](/test2/01连接成功1.png)
 ②创建角色、创建用户
 
-![avatar](/02创建角色.png)
+![avatar](/test2/02创建角色.png)
 
 ③分配空间以及授权
 
-![avatar](/04分配成功.png)
+![avatar](/test2/04分配成功.png)
 
 ###第2步：
 
 新用户new_user连接到pdborcl，创建表mytable和视图myview，插入数据，最后将myview的SELECT对象权限授予hr用户。
 
-![avatar](/06建表以及显示.png)
+![avatar](/test2/06建表以及显示.png)
 
-![avatar](/07授权hr.png)
+![avatar](/test2/07授权hr.png)
 
 ###第3步：
 
 用户hr连接到pdborcl，查询new_user授予它的视图myview
 
-![avater](/08 hr中查询.png)
+![avater](/test2/08 hr中查询.png)
 
 ###查看数据库使用情况
 
-![09查看数据库使用情况1](D:\Work\GitHub\oracle\test2\09查看数据库使用情况1.png)![avatar](/09查看数据库使用情况1.png)
+![09查看数据库使用情况1](/test2/09查看数据库使用情况1.png)![avatar](/test2/09查看数据库使用情况1.png)
