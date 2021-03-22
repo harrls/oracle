@@ -11,16 +11,16 @@
 ##三、实验步骤
 ###1、查询语句运行结果
     查询语句1
-![Alt text](/查询语句1.png)
+![Alt text](/test1/查询语句1.png)
     查询语句1
-![Alt text](/查询语句2.png)
+![Alt text](/test1/查询语句2.png)
 
 ###2、优化指导
     语句1 优化
-![Alt text](/优化1.png)
+![Alt text](/test1/优化1.png)
     语句2 优化
-![Alt text](/优化2.png)
+![Alt text](/test1/优化2.png)
 ###3、自定义语句
-![Alt text](/自定义.png)
+![Alt text](/test1/自定义.png)
 
 查询获取MK_MAN和MK_REP两个工作的最低工资
