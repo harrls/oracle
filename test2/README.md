@@ -17,7 +17,9 @@
 
 以system登录到pdborcl，创建角色con_res_view和用户new_user，并授权和分配空间
 
-①连接system   ![avatar](/01连接成功1.png)
+①连接system   
+
+![avatar](/01连接成功1.png)
 ②创建角色、创建用户
 
 ![avatar](/02创建角色.png)
