@@ -27,13 +27,13 @@
 
 ③运行脚本文件
 
-![avatar](/test2/03.png)
+![avatar](/test3/03.png)
 
-![avatar](/test2/04.png)
+![avatar](/test3/04.png)
 
 ④以system身份进行查询
 
-![avatar](/test2/05.png)
+![avatar](/test3/05.png)
 
-![avatar](/test2/06.png)
+![avatar](/test3/06.png)
 
