@@ -289,24 +289,25 @@ PRIMARY KEY(goodId,warehouseId)
 
 ### 四、存储过程
 
---  创建一个存储过程，求所有超过指定库存大小的的货物的平均库存（传入参数为指定库存大小）。 
+- 创建一个存储过程，求所有超过指定库存大小的的货物的平均库存（传入参数为指定库存大小）。 
 
 CREATE PROCEDURE AvgInvent(IN minInvent SMALLINT, OUT avgInvent DECIMAL)
-  BEGIN 
+
+BEGIN 
   	SELECT AVG(inventoryNum) FROM inventory WHERE inventoryNum >= minInvent 
   	INTO avgInvent;   
   END;
 
+![avatar](/test6/img/sq01.png)
 
+- 创建一个存储过程，求出最大以及最小库存货物的数量。
+  CREATE PROCEDURE MMInvent(OUT maxInvent DECIMAL,OUT minInvent DECIMAL)
+    BEGIN 
+    	SELECT MAX(inventory.`inventoryNum`),MIN(inventory.`inventoryNum`) INTO maxInvent,minInvent
+    	FROM inventory ;
+    END
 
--- 创建一个存储过程，求出最大以及最小库存货物的数量。
-CREATE PROCEDURE MMInvent(OUT maxInvent DECIMAL,OUT minInvent DECIMAL)
-  BEGIN 
-  	SELECT MAX(inventory.`inventoryNum`),MIN(inventory.`inventoryNum`) INTO maxInvent,minInvent
-  	FROM inventory ;
-  END
-
-
+![avatar](/test6/img/sq02.png)
 
 ### 五、Oracle备份
 
