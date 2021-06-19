@@ -14,7 +14,21 @@
 
 ## 二、表设计
 
- 逻辑结构设计：
+E-R图
+
+ ![avatar](/test6/img/E01.png)
+
+![avatar](/test6/img/E02.png)
+
+![avatar](/test6/img/E03.png)
+
+![avatar](/test6/img/E04.png)
+
+![avatar](/test6/img/E05.png)
+
+![avatar](/test6/img/E06.png)
+
+逻辑结构设计：
 
 （1） 分销员信息：（管理员编号，管理员用户名，管理员密码）。
 
