@@ -1,4 +1,4 @@
-# 实验6：基于Oracle的冷库数据库管理
+# 实验6：基于Oracle的食品冷库管理
 ## 黄耀辉 软件18-3 201810414311
 
  ## 一、实验目的：
@@ -107,9 +107,9 @@
 
 ### 1、创建表空间、创建角色、创建用户以及权限分配
 
-![avatar](/test6/image/us01.png)
+![avatar](/test6/img/us01.png)
 
-![avatar](/test6/image/us02.png)
+![avatar](/test6/img/us02.png)
 
 
 
@@ -129,6 +129,8 @@ CREATE TABLE admin (
 
 ) ;
 
+![avatar](/test6/img/c01.png)
+
 **2.2**** 创建仓库信息表**
 
 CREATE TABLE warehouse(
@@ -142,6 +144,8 @@ CREATE TABLE warehouse(
  PRIMARY KEY (warehouseId) 
 
 );
+
+![avatar](/test6/img/c02.png)
 
 **2.3****创建供应商存储信息表**
 
@@ -159,7 +163,7 @@ PRIMARY KEY(supplierId)
 
 );
 
- 
+ ![avatar](/test6/img/c03.png)
 
 **2.4****客户信息表**
 
@@ -175,7 +179,7 @@ PRIMARY KEY(clientId)
 
 );
 
-
+![avatar](/test6/img/c04.png)
 
 **2.5****货物信息表**
 
@@ -195,7 +199,7 @@ FOREIGN KEY(supplierId) REFERENCES supplier(supplierId)
 
 );
 
- 
+ ![avatar](/test6/img/c05.png)
 
 **2.6****入库订单信息表**
 
@@ -221,11 +225,9 @@ FOREIGN KEY(goodId) REFERENCES goods(goodId),
 
 FOREIGN KEY(adminId) REFERENCES admin(adminId)
 
- 
-
 );
 
- 
+ ![avatar](/test6/img/c06.png)
 
 **2.7****出库订单信息表**
 
@@ -245,8 +247,6 @@ out_num INT NOT NULL, -- 出库量
 
 out_time DATETIME, -- 出库时间
 
- 
-
 PRIMARY KEY (outputId,warehouseId,goodId,adminId,clientId),
 
 FOREIGN KEY(warehouseId) REFERENCES warehouse(warehouseId),
@@ -257,9 +257,9 @@ FOREIGN KEY(adminId) REFERENCES admin(adminId),
 
 FOREIGN KEY(clientId) REFERENCES clients(clientId)
 
- 
-
 );
+
+![avatar](/test6/img/c07.png)
 
 **2.8 **库存信息表**
 
@@ -275,19 +275,60 @@ PRIMARY KEY(goodId,warehouseId)
 
 );
 
-![avatar](/test5/02.png)
+![avatar](/test6/img/c08.png)
 
 ### 三、插入数据
 
-![avatar](/test5/03.png)
+3.1向客户表中插入一万条数据
 
-### 四、由于订单只是按日期分区的
+![avatar](/test6/in01.png)
 
-答：可以使用分区查询进行统计或者使用索引
+3.2向供应商表中插入一万条数据
 
-### 五、测试
+![avatar](/test6/in02.png)
 
-![avatar](/test5/04.png)
+### 四、存储过程
 
-![avatar](/test5/05.png)
+--  创建一个存储过程，求所有超过指定库存大小的的货物的平均库存（传入参数为指定库存大小）。 
 
+CREATE PROCEDURE AvgInvent(IN minInvent SMALLINT, OUT avgInvent DECIMAL)
+  BEGIN 
+  	SELECT AVG(inventoryNum) FROM inventory WHERE inventoryNum >= minInvent 
+  	INTO avgInvent;   
+  END;
+
+
+
+-- 创建一个存储过程，求出最大以及最小库存货物的数量。
+CREATE PROCEDURE MMInvent(OUT maxInvent DECIMAL,OUT minInvent DECIMAL)
+  BEGIN 
+  	SELECT MAX(inventory.`inventoryNum`),MIN(inventory.`inventoryNum`) INTO maxInvent,minInvent
+  	FROM inventory ;
+  END
+
+
+
+### 五、Oracle备份
+
+windows环境
+
+```
+@echo off
+set t_date=%date% 
+set t_time=%time%
+set t_n=%t_date:~0,4%
+set t_y=%t_date:~5,2% 
+set t_r=%t_date:~8,2% 
+set t_h=%t_time:~0,2%
+set t_m=%t_time:~3,2%
+set full_name=CTEurope%t_y%%t_r%%t_h%%t_m%
+exp eutest/1@gentle file=%full_name%.dmp1
+"C:\Program Files\WinRAR\Rar.exe" a -k -r -s -m1 %full_name%.rar %full_name%.dmp
+del %full_name%.dmp
+```
+
+
+
+### 六、实验总结
+
+​	本次实验是一个基于oracle的食品冷库管理数据库设计，实验内容是我根据之前设计过的mysql数据库进行的，通过这次实验体会到两种数据库在设计理念上的不同，同时也遇到了许多问题，自己对Oracle还是不够熟悉，还需要深入学习。
