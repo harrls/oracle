@@ -281,11 +281,11 @@ PRIMARY KEY(goodId,warehouseId)
 
 3.1向客户表中插入一万条数据
 
-![avatar](/test6/in01.png)
+![avatar](/test6/img/in01.png)
 
 3.2向供应商表中插入一万条数据
 
-![avatar](/test6/in02.png)
+![avatar](/test6/img/in02.png)
 
 ### 四、存储过程
 
